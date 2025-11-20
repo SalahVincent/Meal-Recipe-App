@@ -8,10 +8,26 @@ const Categories = () => {
         queryFn: getMealCategories,
     })
 
+    if (isLoading) {
+        return <div>Loading categories...</div>;
+    }
+
+    if (error) {
+        return <div>Error: {error.message}</div>;
+    }
+    
+    console.log(data);
+
   return (
     <>
     <div>
         <ul>
+            {data.categories.map((category) => (
+                <li key={category.idCategory}>
+                    <img src={category.strCategoryThumb} alt={category.strCategory} />
+                    <h1>{category.strCategory}</h1>
+                </li>
+            ))}
         </ul>
     </div>
     </>

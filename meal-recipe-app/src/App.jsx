@@ -7,7 +7,7 @@ const App = () => {
   return (
     <>
     <header>
-      <h1>Search for Meals You Can Prepare</h1>
+      <h1>Search for Meals You Want To Prepare</h1>
       <Search />
     </header>
     <section>
