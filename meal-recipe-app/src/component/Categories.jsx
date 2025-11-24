@@ -1,37 +1,47 @@
-import React from 'react'
-import {useQuery} from '@tanstack/react-query'
-import { getMealCategories } from '../services/mealServices'
+import React from "react";
+import { useQuery } from "@tanstack/react-query";
+import { useNavigate } from "react-router-dom";
+import { getMealCategories } from "../services/meal.service";
 
 const Categories = () => {
-    const {data, error, isLoading} = useQuery({
-        queryKey: ['categories'],
-        queryFn: getMealCategories,
-    })
+  const navigate = useNavigate();
+  const { data, error, isLoading } = useQuery({
+    queryKey: ["categories"],
+    queryFn: getMealCategories,
+  });
 
-    if (isLoading) {
-        return <div>Loading categories...</div>;
-    }
+  if (isLoading) {
+    return <div>Loading categories...</div>;
+  }
 
-    if (error) {
-        return <div>Error: {error.message}</div>;
-    }
-    
-    console.log(data);
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
+
+  console.log(data);
 
   return (
     <>
-    <div>
-        <ul>
+      <section>
+        <h2>Meal Categories</h2>
+        <div>
+          <ul>
             {data.categories.map((category) => (
-                <li key={category.idCategory}>
-                    <img src={category.strCategoryThumb} alt={category.strCategory} />
-                    <h1>{category.strCategory}</h1>
-                </li>
+              <li key={category.idCategory}  onClick={() => navigate(`/meals-page/${category.strCategory}`)}>
+                  <img
+                    src={category.strCategoryThumb}
+                    alt={category.strCategory}
+                  />
+                  <h3>{category.strCategory}</h3>
+                  <p>{category.strCategoryDescription}</p>
+                
+              </li>
             ))}
-        </ul>
-    </div>
+          </ul>
+        </div>
+      </section>
     </>
-  )
-}
+  );
+};
 
-export default Categories
+export default Categories;

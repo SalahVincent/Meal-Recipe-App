@@ -1,22 +1,19 @@
 import React from 'react'
 import Search from './component/Search'
-import Categories from './component/Categories'
-
+import Meals from './routes/Meals'
+import { BrowserRouter, Routes, Route, } from 'react-router-dom'
+import MealRecipe from './routes/MealRecipe'
 
 const App = () => {
   return (
     <>
-    <header>
-      <h1>Search for Meals You Want To Prepare</h1>
-      <Search />
-    </header>
-    <section>
-      <h2>Meal Categories</h2>
-      <Categories />
-    </section>
-    <footer>
-
-    </footer>
+    <BrowserRouter future={{ v7_relativeSplatPath: true }}>
+    <Routes>
+      <Route path = "/" element={<Search />} />
+      <Route path = "/meals-page/:categories" element={<Meals />} />
+      <Route path = "/meal-recipe-page" element={<MealRecipe />} />
+      </Routes>
+      </BrowserRouter> 
     </>
   )
 }
