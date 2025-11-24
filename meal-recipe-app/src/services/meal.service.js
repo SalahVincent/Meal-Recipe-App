@@ -13,3 +13,12 @@ export const getMealsByCategory = async ( category ) => {
 })
 return response.json()
 }
+
+export const getMealDetailsById = async ( id ) => {
+    const response = api.get('lookup.php', {
+        searchParams: {
+            i: id
+        }
+    })
+    return response.json()
+}

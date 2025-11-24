@@ -10,8 +10,8 @@ const App = () => {
     <BrowserRouter future={{ v7_relativeSplatPath: true }}>
     <Routes>
       <Route path = "/" element={<Search />} />
-      <Route path = "/meals-page/:categories" element={<Meals />} />
-      <Route path = "/meal-recipe-page" element={<MealRecipe />} />
+      <Route path = "/meals-page/:category" element={<Meals />} />
+      <Route path = "/meal-recipe-page/:id" element={<MealRecipe />} />
       </Routes>
       </BrowserRouter> 
     </>

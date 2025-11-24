@@ -6,7 +6,6 @@ import { useNavigate } from 'react-router-dom'
 
  function Meals() {
   const navigate = useNavigate();
-
   const { category } = useParams();
   const { data, isPending, isError, error } = useQuery({
     queryKey: ["meals", category],
@@ -23,11 +22,9 @@ import { useNavigate } from 'react-router-dom'
       {data.meals.map((meal) => (
         <div
           key={meal.idMeal}
-          onClick={() => navigate(`/meal/${meal.idMeal}`)}
-          className="category-card-body"
-        >
+          onClick={() => navigate(`/meal-recipe-page/${meal.idMeal}`)}>
           <img src={meal.strMealThumb} />
-          <h1 className="category-card-title">{meal.strMeal}</h1>
+          <h1>{meal.strMeal}</h1>
         </div>
       ))}
     </div>
