@@ -1,0 +1,13 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.meal-card {
+
+}
+
+.meal-card img {
+    width: 500px;
+    border-radius: 20%;
+}

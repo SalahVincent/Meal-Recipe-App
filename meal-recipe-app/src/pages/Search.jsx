@@ -1,15 +1,17 @@
 import React from "react";
 import Categories from "../component/Categories/Categories";
+import './Search.css'
 
 const Search = () => {
   return (
-    <>
-      <h1>Search for Meals You Want To Prepare</h1>
-      <form action="submit">
+    <div className="first-page">
+      <h1>PrepareApp</h1>
+      <form className="search-bar" action="submit">
         <input type="text" placeholder="Search for meal category here" />
+        <button className="search-btn">Search</button>
       </form>
       <Categories />
-    </>
+    </div>
   );
 };
 

@@ -3,6 +3,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { getMealsByCategory } from "../../services/meal.service";
 import { useNavigate } from "react-router-dom";
+import './Meals.css'
 
 function Meals() {
   const navigate = useNavigate();
@@ -19,15 +20,18 @@ function Meals() {
 
   return (
     <div>
+      <h2>Meals under <span>{category}</span> Food Category</h2>
+    <div className="meal-box">
       {data.meals.map((meal) => (
-        <div
+        <div className="meal-list"
           key={meal.idMeal}
           onClick={() => navigate(`/meal-recipe-page/${meal.idMeal}`)}
         >
           <img src={meal.strMealThumb} />
-          <h2>{meal.strMeal}</h2>
+          <h4>{meal.strMeal}</h4>
         </div>
       ))}
+    </div>
     </div>
   );
 }
