@@ -1,7 +1,7 @@
 import React from "react";
 import { useQuery } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
-import { getMealCategories } from "../services/meal.service";
+import { getMealCategories } from "../../services/meal.service";
 
 const Categories = () => {
   const navigate = useNavigate();
@@ -27,14 +27,16 @@ const Categories = () => {
         <div>
           <ul>
             {data.categories.map((category) => (
-              <li key={category.idCategory}  onClick={() => navigate(`/meals-page/${category.strCategory}`)}>
-                  <img
-                    src={category.strCategoryThumb}
-                    alt={category.strCategory}
-                  />
-                  <h3>{category.strCategory}</h3>
-                  <p>{category.strCategoryDescription}</p>
-                
+              <li
+                key={category.idCategory}
+                onClick={() => navigate(`/meals-page/${category.strCategory}`)}
+              >
+                <img
+                  src={category.strCategoryThumb}
+                  alt={category.strCategory}
+                />
+                <h3>{category.strCategory}</h3>
+                <p>{category.strCategoryDescription}</p>
               </li>
             ))}
           </ul>
